@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1, user-scalable=no" />
+</head>
+<body>
+	
+	
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		#wrap {
+			background: url(http://gtms01.alicdn.com/tps/i1/T1svEsFddeXXaRW9.A-1080-703.jpg) center 0 no-repeat;
+			background-size: 540px 351px ;
+			height:200px;
+		}
+		
+		
+		#wrap1 {
+			background: url(http://gtms01.alicdn.com/tps/i1/T1svEsFddeXXaRW9.A-1080-703.jpg) center 0 no-repeat;
+			background-size: 1080px 702px ;
+			height:200px;
+		}
+	
+	</style>
+	
+	<div id="wrap0"></div>
+	<div id="wrap1"></div>
+	<div style="width:320px;height:20px;background:#000;"></div>
+	<div style="width:640px;height:20px;background:#f30;"></div>
+	
+	<script type="text/javascript">
+		window.onhashchange = function(){
+			alert("onhashchange")
+		}
+		window.onclick = function(){
+			window.history.pushState({}, "", "#modalTip");
+		}
+	</script>
+</body>
+</html>

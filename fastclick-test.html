@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>tappy test</title>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="js/fastclick.js"></script>
+	<style type="text/css">
+		li{margin:100px;}
+		.box{border:1px solid #000;background:#000;width:50px;height:50px;float:left;margin-left:50px;}
+	</style>
+</head>
+<body>
+	
+	<p>页面click事件快速响应，5秒以后取消300毫秒延迟</p>
+	<p>
+		<a href="https://github.com/ftlabs/fastclick">https://github.com/ftlabs/fastclick</a>
+	</p>
+	<dl>
+
+	</dl>
+	<dl>
+		<dt>可能存在的问题</dt>
+		<dd></dd>
+		<dd></dd>
+	</dl>
+
+	<a href="http://www.baidu.com" id="clicka"> click 事件 </a>
+	<div>
+		<div class="box">divTest</div>
+		<div class="box">divTest</div>
+	</div>
+	<div id="links">
+		<ul>
+
+			<li><a href="http://www.baidu.com" > baidu.com </a></li>
+			<li><a href="http://www.sina.com" > sina.com </a></li>
+			<li><a href="http://www.taobao.com" > taobao.com </a></li>
+			<li><a href="http://www.alipay.com" > alipay.com </a></li>
+
+		</ul>
+	</div>
+	<script type="text/javascript">
+		
+		window.addEventListener('load', function() {
+			var time = 0;
+		    
+
+		    $("#links a").click(function(){
+
+		    	alert("click," + (new Date().getTime() - time));
+		    	return false;
+		    }).bind("touchend", function(){
+		    	time = new Date().getTime();
+		    	//alert("touchend")
+		    });
+
+		    $(".box").bind("touchstart", function(){
+		    	console.log("touchstart")
+		    	//time = new Date().getTime();
+		    	//alert("touchstart")
+		    }).click(function(){
+
+		    	alert("click," + (new Date().getTime() - time));
+		    	return false;
+		    }).bind("touchend", function(){
+		    	time = new Date().getTime();
+		    	console.log("touchend")
+		    });
+
+		    setTimeout(function(){
+
+		    	new FastClick(document.body);
+		    
+		    }, 5000)
+		}, false);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>animte test</title>
+	<style type="text/css">
+		.box{margin:auto;text-align:center;}
+		.circle{border-radius:50%;width:50px;height:50px;display:inline-block;margin:0 auto;}
+			.red{background:red; -webkit-animation:animations 0.4s ease-out;}
+			.ccc{background:red; -webkit-animation:animations2 0.4s ease-out;}
+			.ddd{background:red; -webkit-animation:animations3 0.4s ease-out;}
+			.d8d8{background:red; -webkit-animation:animations4 0.4s ease-out;}
+			.eee{background:red; -webkit-animation:animations5 0.4s ease-out;}
+		
+	
+		@-webkit-keyframes animations{
+			0%{-webkit-transform:scale(0,0)}
+			100%{-webkit-transform:scale(1,1)}
+		}
+		
+		
+		@-webkit-keyframes animations2{
+			0%{-webkit-transform:scale(0,0)}
+			30%{-webkit-transform:scale(0,0)}
+			100%{-webkit-transform:scale(1,1)}
+		}
+		
+		@-webkit-keyframes animations3{
+			0%{-webkit-transform:scale(0,0)}
+			40%{-webkit-transform:scale(0,0)}
+			100%{-webkit-transform:scale(1,1)}
+		}
+		
+		@-webkit-keyframes animations4{
+			0%{-webkit-transform:scale(0,0)}
+			50%{-webkit-transform:scale(0,0)}
+			100%{-webkit-transform:scale(1,1)}
+		}
+		@-webkit-keyframes animations5{
+			0%{-webkit-transform:scale(0,0)}
+			60%{-webkit-transform:scale(0,0)}
+			100%{-webkit-transform:scale(1,1)}
+		}
+		
+		
+		
+	
+		
+		
+
+	</style>
+</head>
+<body>
+	<h1>自定义动画测试</h1>
+	<p>定义动画参考：http://ued.ctrip.com/blog/wp-content/webkitcss/index.html</p>
+	<div class="box">
+		<div class="circle red"></div>
+		<div class="circle ccc"></div>
+		<div class="circle ddd"></div>
+		<div class="circle d8d8"></div>
+		<div class="circle eee"></div>
+		<div class="circle red"></div>
+		<div class="circle red"></div>
+	</div>
+</body>
+</html>

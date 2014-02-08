@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>逐帧动画</title>
+	<script type="text/javascript" src="js/zepto.js"></script>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		.box{background:url(http://www.google.com/logos/2012/muybridge12-hp-v.png) no-repeat 0 0;width:469px;height:162px;position:absolute;z-index:3;top:0;}
+		.item{float:left;}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div style="width:469px;">
+		<div class="item" id="xxx" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx1" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx2" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx3" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx4" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx5" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx6" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx1" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx2" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx3" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx4" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx5" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx6" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx1" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx2" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx3" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx4" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx5" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+		<div class="item" id="xxx6" style="background:url(http://www.google.com/logos/2012/muybridge12-hp-f.jpg) no-repeat 0 0;width:67px;height:54px;background-position:0px 0px;"></div>
+	</div>
+	<!--http://www.google.com/logos/2012/muybridge12-hp-f.jpg-->
+	<script type="text/javascript">
+	
+		/**
+			
+			
+			
+			StopMotion
+				
+				element: //被动画的元素
+				latticeSize: //单格大小
+				latticeCount: //格数
+				
+				
+				.start(); //开始
+				.stop(); //停止
+				
+				//可以自定义变化的样式
+				.setStyle( x );//可覆盖
+				
+		
+		*/
+	
+	
+	
+		function StopMotion( element, latticeSize, latticeCount ){
+			
+			this.element = element;
+			
+			this.latticeSize = latticeSize;
+			this.latticeCount = latticeCount;
+			
+			this.index = 0;
+			this.startIndex = 0;
+			
+			this.interid = -1;
+			this.speed = 30;
+			
+			this.isTransition = true;
+			
+			this.init();
+		}
+		
+		StopMotion.prototype = {
+			constructro:StopMotion,
+			init:function(){
+				if(this.isTransition){
+					this.size = this.latticeSize;
+					this.i = 0;
+					this.latticeSize /= 10; 
+				}
+			},
+			start:function(){
+				var self = this;
+				this.interid = setInterval(function(){
+					self.next();
+				}, this.speed);
+			},
+			next:function(){
+				
+				var index = ++this.index;
+				
+				if( this.isTransition && this.latticeSize != this.size ){
+					this.latticeSize = this.easeInOut( ++this.i, 0, this.size, this.size+5);
+				
+				}
+				
+				if(index > this.latticeCount){
+					index = this.index = this.startIndex;
+				}
+
+				this.setStyle( index * this.latticeSize );
+				
+			},
+			stop:function(){
+				clearInterval( this.interid );
+			},
+			setStyle:function( x ){
+				this.element.style.backgroundPosition = -x+"px 0px"
+			},
+			easeInOut: function(t,b,c,d){
+				return c*(t/=d)*t*t + b;
+			}
+			
+		};
+		
+		var list = $('.item');
+		var sm = null;
+		for(var i=0; i<list.length; i++){
+			sm = new StopMotion(list[i], 67, 11);
+			sm.speed = 55;
+			sm.start();
+		}
+		/**
+		
+		var sm = new StopMotion($('#xxx1')[0], 67, 11);
+		sm.speed = 20;
+		sm.start();
+		
+		
+		var sm = new StopMotion($('#xxx2')[0], 67, 11);
+		sm.speed = 16;
+		sm.start();
+		
+		var sm = new StopMotion($('#xxx3')[0], 67, 11);
+		sm.speed = 40;
+		sm.start();
+		
+		var sm = new StopMotion($('#xxx4')[0], 67, 11);
+		sm.speed = 50;
+		sm.start();
+		
+		var sm = new StopMotion($('#xxx5')[0], 67, 11);
+		sm.speed = 55;
+		sm.start();
+		
+		var sm = new StopMotion($('#xxx6')[0], 67, 11);
+		sm.speed = 60;
+		sm.start();
+		*/
+	</script>
+</body>
+</html>

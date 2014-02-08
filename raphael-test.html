@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>raphael test</title>
+	<script type="text/javascript" src="js/raphael/raphael.js"></script>
+	<script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.0/seed-min.js" ></script>
+</head>
+<body>
+
+	<script type="text/javascript">
+		KISSY.use("gallery/kcharts/1.3/radar/index", function(S, Radar){
+
+			console.log( 1111, Radar );
+			/** 
+			{
+				caption:"Dota",//表头
+
+				config:{
+					maxScores:100
+					width:100,
+					height:100
+				},
+
+				head:["攻击", "防御", "补刀", "杀人", "助攻", "死亡","复活"],
+				datas:[
+					{
+						data:{
+							title:"Real Madrid C.F.",
+							scores:[8, 9, 7, 9, 7, 6, 6]
+						},
+						style:{
+							points:{fill:"#000"}
+						}
+					}
+				]
+			}
+			*/
+
+
+			var radar = new Radar({
+				renderTo:document.body,
+				//width:200,
+				//height:200,
+				max:20,
+				labels:["攻击", "防御", "补刀", "杀人", "助攻", "死亡","复活"],
+				scoreGroups:[
+					{title: "Real Madrid C.F.", scores: [ 8, 9, 7, 9, 7, 6, 6], points: {'fill':'#f05a23','stroke-width':'1.5','stroke':'#333', 'size': 6}},
+					{title: "FC Barcelona", scores: [ 10, 7, 10, 7, 6, 8, 6], points: {'fill':'#0000','stroke-width':'1.5','stroke':'#333', 'size': 6}}
+				],
+				legend:{
+				    globalConfig:{
+				      iconsize:[2,2],
+				      icontype:"circle"
+				    }
+				  },
+				anim:{
+		           easing:"linear",
+		           duration:1000
+		         }
+			});
+
+			//radar.renderTo(document.body);
+		});
+	</script>
+	<!--
+	<script type="text/javascript">
+		var paper = new Raphael(0, 0, 500,500);
+
+		var circle = paper.circle(30, 50, 20);
+
+		circle.attr("fill",'#000');
+		circle.attr("stroke", "#f30");
+		circle.attr("stroke-width", 20);
+
+		circle.click(function(){
+
+			alert(1);
+
+		});
+
+
+
+		//var 
+	</script>
+	-->
+</body>
+</html>

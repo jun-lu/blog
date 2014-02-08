@@ -1,0 +1,23 @@
+{
+  "name": "One.js",
+  "version": "1.0.0",
+  "description": "tbtongxue-union",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:lujun.lj/tbtongxue-union.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.5.0"
+  },
+  "author": "daijun",
+  "license": "BSD-2-Clause"
+}

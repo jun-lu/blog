@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jhs.m.taobao.com</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.box{margin:0 auto;width:auto;}
+		.box li{display:block;height:50px;background:red;list-style-type:none;margin:5px;}
+		.box ul:after{content:".";display:block;clear:both;}
+		
+		
+		
+		@media (max-width:645px){
+			.box ul{margin:10px;}
+		}
+		
+		
+		@media (min-width:645px){
+			.box{width:auto;}
+			.box ul{margin:10px;}
+			.box li{float:left;border-right:1px solid #fff;width:49%;margin:5px 0;}
+		}
+		
+		
+		
+		@media (min-width:965px){
+			.box{width:965px;}
+			.box ul{margin:10px;}
+			.box li{float:left;border-right:1px solid #fff;width:33%;}
+		}
+
+	</style>
+</head>
+<body>
+	<h1>媒体查询应用测试</h1>
+	<div>
+		<p>1)screen > 640</p>
+		<p>2)640 > screen > 965</p>
+		<p>3)965 > screen</p>
+	</div>
+	<div>
+		<h2>疑惑</h2>
+		<p>一行多列的百分比宽度定义略有瑕疵，比如两个50%不能渲染到一行，是否可采用</p>
+		<p>flex ：http://ued.ctrip.com/blog/wp-content/webkitcss/index.html</p>
+		<p>columns : http://ued.ctrip.com/blog/wp-content/webkitcss/index.html</p>
+	</div>
+	<div class="box">
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	
+	</div>
+</body>
+</html>
