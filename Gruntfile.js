@@ -29,7 +29,7 @@ module.exports = function(grunt){
         },
         watch: {
 			"js":{
-				files: ["<%= concat.jsCombo.src  %>"],
+				files: ["<%= concat.jsCombo.src  %>",'*.html'],
 				tasks: ['concat:jsCombo']
 			},
 			"livereload": {

@@ -12,19 +12,11 @@
 	</style>
 </head>
 <body>
-	
-	<p>页面click事件快速响应，5秒以后取消300毫秒延迟</p>
+	<p><strong>请打开 Emulate touch screen 调试</strong></p>
+	<p>3秒以后页面click响应时间降低</p>
 	<p>
 		<a href="https://github.com/ftlabs/fastclick">https://github.com/ftlabs/fastclick</a>
 	</p>
-	<dl>
-
-	</dl>
-	<dl>
-		<dt>可能存在的问题</dt>
-		<dd></dd>
-		<dd></dd>
-	</dl>
 
 	<a href="http://www.baidu.com" id="clicka"> click 事件 </a>
 	<div>
@@ -49,7 +41,7 @@
 
 		    $("#links a").click(function(){
 
-		    	alert("click," + (new Date().getTime() - time));
+		    	alert("event click, 响应时间" + (new Date().getTime() - time)+"毫秒");
 		    	return false;
 		    }).bind("touchend", function(){
 		    	time = new Date().getTime();
@@ -62,7 +54,7 @@
 		    	//alert("touchstart")
 		    }).click(function(){
 
-		    	alert("click," + (new Date().getTime() - time));
+		    	alert("event click, 响应时间" + (new Date().getTime() - time) +"毫秒");
 		    	return false;
 		    }).bind("touchend", function(){
 		    	time = new Date().getTime();
@@ -73,7 +65,7 @@
 
 		    	new FastClick(document.body);
 		    
-		    }, 5000)
+		    }, 3000)
 		}, false);
 
 	</script>
