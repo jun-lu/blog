@@ -7,31 +7,62 @@
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="js/fastclick.js"></script>
 	<style type="text/css">
-		li{margin:100px;}
-		.box{border:1px solid #000;background:#000;width:50px;height:50px;float:left;margin-left:50px;}
+		input,select{padding:.5em;}
+		li{margin:20px;}
+		.box{border:1px solid #000;background:#000;width:100px;height:50px;float:left;margin-left:50px;color:#fff;text-align:center;}
 	</style>
 </head>
 <body>
 	<p><strong>请打开 Emulate touch screen 调试</strong></p>
-	<p>3秒以后页面click响应时间降低</p>
+	<p>页面打开3秒以后click响应时间降低</p>
 	<p>
 		<a href="https://github.com/ftlabs/fastclick">https://github.com/ftlabs/fastclick</a>
 	</p>
 
-	<a href="http://www.baidu.com" id="clicka"> click 事件 </a>
+	<h2>Click事件响应测试</h2>
 	<div>
-		<div class="box">divTest</div>
-		<div class="box">divTest</div>
+		<div class="box">点我测试</div>
+		<div style="clear:both;"></div>
 	</div>
-	<div id="links">
+
+	<h2>a 链接响应测试 </h2>
+	<div id="links" style="clear:both;margin:50px 0;">
 		<ul>
 
-			<li><a href="http://www.baidu.com" > baidu.com </a></li>
-			<li><a href="http://www.sina.com" > sina.com </a></li>
-			<li><a href="http://www.taobao.com" > taobao.com </a></li>
-			<li><a href="http://www.alipay.com" > alipay.com </a></li>
+
+			<li><a href="http://www.baidu.com" target="_blank" > _blank -> baidu.com </a></li>
+			<li><a href="http://www.weibo.com" target="iframea" > iframe -> weibo.com </a></li>
+			<li><a href="http://www.taobao.com" target="_top"> top -> taobao.com </a></li>
+			<li><a href="http://www.alipay.com" target="_parent"> parent -> alipay.com </a></li>
+			<li><a href="http://www.baidu.com" target="_self" > self -> baidu.com </a></li>
+			<li><a href="http://www.baidu.com" > default -> baidu.com </a></li>
 
 		</ul>
+		<div  style="position:absolute;top:0;left:300px;">
+			<h2>iframe</h2>
+			<iframe src="http://www.baidu.com" id="iframea" ></iframe>
+		</div>
+		
+	</div>
+
+	<h2> 表单元素键盘唤起 </h2>
+	<div>
+		<div>
+		<input>
+		</div>
+		<div>
+		<input type="search">
+		</div>
+		<div>
+		<select>
+			<option>男</option>
+			<option>女</option>
+		</select>
+		</div>
+
+		<div>
+			<input type="button" value="提交按钮" onclick="alert('click')">
+		</div>
 	</div>
 	<script type="text/javascript">
 		
@@ -39,22 +70,13 @@
 			var time = 0;
 		    
 
-		    $("#links a").click(function(){
-
-		    	alert("event click, 响应时间" + (new Date().getTime() - time)+"毫秒");
-		    	return false;
-		    }).bind("touchend", function(){
-		    	time = new Date().getTime();
-		    	//alert("touchend")
-		    });
-
 		    $(".box").bind("touchstart", function(){
 		    	console.log("touchstart")
 		    	//time = new Date().getTime();
 		    	//alert("touchstart")
 		    }).click(function(){
 
-		    	alert("event click, 响应时间" + (new Date().getTime() - time) +"毫秒");
+		    	alert("Event:click, 响应时间" + (new Date().getTime() - time) +"毫秒");
 		    	return false;
 		    }).bind("touchend", function(){
 		    	time = new Date().getTime();
